@@ -1,11 +1,11 @@
   <div class="bg-black mt-10">
       <footer class="text-gray-500">
           <div class="container mx-auto w-full max-w-[1150px]">
-              <div class="flex flex-row py-8 justify-between gap-4 mx-4">
-                  <div class="flex flex-col w-1/2 space-y-2">
-                      <h4 class="footer-title font-bold text-white text-base">Comfree Theme</h4>
-                      <div class="w-3/4">
-                          <span class="text-sm">Comfree Theme merupakan tema toko online yang dibuat khusus untuk
+              <div class="flex flex-col lg:flex-row py-8 justify-between gap-4 mx-4" x-data="fetchData()" x-init="fetchComfreeContent()">
+                  <div class="flex flex-col w-full lg:w-1/2 space-y-2">
+                      <h4 class="footer-title font-bold text-white text-base" x-html="footer.title1">Comfree Theme</h4>
+                      <div class="w-full lg:w-3/4">
+                          <span class="text-sm" x-text="footer.description1">Comfree Theme merupakan tema toko online yang dibuat khusus untuk
                               Commerce Module</span>
                       </div>
                       <div class="flex flex-row items-center gap-6">
@@ -57,17 +57,16 @@
                           </div>
                       </div>
 
-
                   </div>
-                  <div class="flex flex-grow w-1/2 justify-between">
+                  <div class="flex flex-col lg:flex-row w-full lg:w-1/2 justify-between gap-2">
                       <div class="flex flex-col w-1/2 space-y-2">
-                          <h4 class="footer-title font-bold text-white text-base">Link Penting</h4>
-                          <a class="link link-hover text-sm">Konfirmasi Pembayaran</a>
-                          <a class="link link-hover text-sm">Pembayaran & Pengiriman</a>
-                          <a class="link link-hover text-sm">Syarat & Ketentuan</a>
+                          <h4 class="footer-title font-bold text-white text-base" x-html="footer.title2">Link Penting</h4>
+                          <template x-for="item in footer.links">
+                             <a class="link link-hover text-sm" x-text="item.name.data.text">Konfirmasi Pembayaran</a>
+                          </template>
                       </div>
                       <div class="flex flex-col w-1/2 space-y-2">
-                          <h4 class="footer-title font-bold text-white text-base">Market Place</h4>
+                          <h4 class="footer-title font-bold text-white text-base" x-html="footer.title3">Market Place</h4>
                           <div class="flex flex-row gap-2">
                               <div class="h-12 w-12">
                                   <a href="https://www.tokopedia.com">
@@ -102,7 +101,7 @@
           <div class="border-t border-slate-700"></div>
           <div class="container mx-auto w-full max-w-[1150px]">
               <div class="flex py-4 mx-4">
-                  <span class="text-sm">@Copyright Uasoft 2024. All Rights Reserved</span>
+                  <span class="text-sm" x-html="footer.copyright">@Copyright Uasoft 2024. All Rights Reserved</span>
               </div>
           </div>
       </footer>

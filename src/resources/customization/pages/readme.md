@@ -1,1 +1,1 @@
-## Override Postfree Theme Pages
+## Override Comfree Theme Pages
