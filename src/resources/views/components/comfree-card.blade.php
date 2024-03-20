@@ -8,19 +8,22 @@
                           @if (strpos($item->product_image, 'https') !== false || strpos($item->product_image, 'http') !== false)
                               <img src="{{ $item->product_image }}" class="h-full w-full" alt="Shoes" />
                           @else
-                             <img src="{{ Storage::url($item->product_image) }}" class="h-full w-full" alt="Shoes" />
+                              <img src="{{ Storage::url($item->product_image) }}" class="h-full w-full" alt="Shoes" />
                           @endif
 
                       </figure>
                   </div>
                   <div class="flex flex-col h-1/2 p-4">
-                      <div class="flex justify-center"><a href="{{ route('badaso.comfree-theme.detail','') }}/{{$item->slug}}">
-                          <span class="font-bold text-md text-center">{{ $item->name }}</span></a>
-                      </div>
+                      <a href="{{ route('badaso.comfree-theme.detail', '') }}/{{ $item->slug }}">
+                          <div class="flex justify-center">
+                              <span class="font-bold text-sm text-center">{{ $item->name }}</span>
+                          </div>
+                      </a>
                       @foreach ($item->product_details as $product_detail)
-                      <div class="flex justify-center">
-                          <span class="font-bold text-md text-center">Rp {{ number_format($product_detail->price, 0, ' ', '.') }}</span>
-                      </div>
+                          <div class="flex justify-center">
+                              <span class="text-sm text-center text-gray-400">Rp
+                                  {{ number_format($product_detail->price, 0, ' ', '.') }}</span>
+                          </div>
                       @endforeach
                   </div>
                   <div class="absolute top-52 w-full">

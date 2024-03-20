@@ -1,11 +1,13 @@
   <div class="bg-black mt-10">
       <footer class="text-gray-500">
           <div class="container mx-auto w-full max-w-[1150px]">
-              <div class="flex flex-col lg:flex-row py-8 justify-between gap-4 mx-4" x-data="fetchData()" x-init="fetchComfreeContent()">
+              <div class="flex flex-col lg:flex-row py-8 justify-between gap-4 mx-4" x-data="fetchData()"
+                  x-init="fetchComfreeContent()">
                   <div class="flex flex-col w-full lg:w-1/2 space-y-2">
                       <h4 class="footer-title font-bold text-white text-base" x-html="footer.title1">Comfree Theme</h4>
                       <div class="w-full lg:w-3/4">
-                          <span class="text-sm" x-text="footer.description1">Comfree Theme merupakan tema toko online yang dibuat khusus untuk
+                          <span class="text-sm" x-text="footer.description1">Comfree Theme merupakan tema toko online
+                              yang dibuat khusus untuk
                               Commerce Module</span>
                       </div>
                       <div class="flex flex-row items-center gap-6">
@@ -60,38 +62,24 @@
                   </div>
                   <div class="flex flex-col lg:flex-row w-full lg:w-1/2 justify-between gap-2">
                       <div class="flex flex-col w-1/2 space-y-2">
-                          <h4 class="footer-title font-bold text-white text-base" x-html="footer.title2">Link Penting</h4>
+                          <h4 class="footer-title font-bold text-white text-base" x-html="footer.title2">Link Penting
+                          </h4>
                           <template x-for="item in footer.links">
-                             <a class="link link-hover text-sm" x-text="item.name.data.text">Konfirmasi Pembayaran</a>
+                              <a class="link link-hover text-sm" x-text="item.name.data.text">Konfirmasi Pembayaran</a>
                           </template>
                       </div>
                       <div class="flex flex-col w-1/2 space-y-2">
-                          <h4 class="footer-title font-bold text-white text-base" x-html="footer.title3">Market Place</h4>
+                          <h4 class="footer-title font-bold text-white text-base" x-html="footer.title3">Market Place
+                          </h4>
                           <div class="flex flex-row gap-2">
-                              <div class="h-12 w-12">
-                                  <a href="https://www.tokopedia.com">
-                                      <img src="https://demo.saudagarwp.com/wp-content/themes/saudagarwp/assets/img/marketplace-tokopedia.webp"
-                                          class="rounded-md" alt="">
-                                  </a>
-                              </div>
-                              <div class="h-12 w-12">
-                                  <a href="https://www.lazada.co.id">
-                                      <img src="https://demo.saudagarwp.com/wp-content/themes/saudagarwp/assets/img/marketplace-lazada.webp"
-                                          class="rounded-md" alt="">
-                                  </a>
-                              </div>
-                              <div class="h-12 w-12">
-                                  <a href="https://shopee.co.id">
-                                      <img src="https://demo.saudagarwp.com/wp-content/themes/saudagarwp/assets/img/marketplace-shopee.webp"
-                                          class="rounded-md" alt="">
-                                  </a>
-                              </div>
-                              <div class="h-12 w-12">
-                                  <a href="https://www.tiktok.com">
-                                      <img src="https://demo.saudagarwp.com/wp-content/themes/saudagarwp/assets/img/marketplace-tiktok.webp"
-                                          class="rounded-md" alt="">
-                                  </a>
-                              </div>
+                              <template x-for="item in footer.application">
+                                  <div class="h-12 w-12">
+                                      <a :href="item.name.data.url">
+                                          <img :src="item.icon.data"
+                                              class="rounded-md" alt="">
+                                      </a>
+                                  </div>
+                              </template>
                           </div>
                       </div>
 

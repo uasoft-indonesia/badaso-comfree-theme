@@ -302,6 +302,9 @@ function fetchAuthenticated() {
 }
 
 function fetchData() {
+    let pathname = window.location.pathname.split(`/`);
+    let slug = window.location.pathname.split(pathname[1] + `/`);
+
   return {
     content: null,
     configuration: [],
@@ -311,9 +314,11 @@ function fetchData() {
     productCategories: [],
     slug: ["comfree-theme"],
     data: "",
-    navbar:{},
-    footer:{},
-    products:"",
+    navbar: {},
+    footer: {},
+    products: "",
+    productDetails:"",
+    slugProduct: slug[1],
     fetchConfiguration() {
       fetch(`/badaso-api/v1/configurations/fetch`)
         .then((res) => res.json())
@@ -350,37 +355,50 @@ function fetchData() {
       fetch(`/badaso-api/module/content/v1/content/fetch?slug=${this.slug[0]}`)
         .then((res) => res.json())
         .then((data) => {
-             this.data = data.data.value;
-             this.navbar = this.data.navbar.data;
-             this.footer = this.data.footer.data;
-             this.footer = {
-               title1: this.footer.footer1.data.title.data,
-               title2: this.footer.footer2.data.title.data,
-               title3: this.footer.footer3.data.title.data,
-               description1: this.footer.footer1.data.description.data,
-               links: this.footer.footer2.data.list.data,
-               copyright: this.footer.copyright.data,
-             };
+          this.data = data.data.value;
+          this.navbar = this.data.navbar.data;
+          this.footer = this.data.footer.data;
+          this.footer = {
+            title1: this.footer.footer1.data.title.data,
+            title2: this.footer.footer2.data.title.data,
+            title3: this.footer.footer3.data.title.data,
+            description1: this.footer.footer1.data.description.data,
+            links: this.footer.footer2.data.list.data,
+            copyright: this.footer.copyright.data,
+            application:this.footer.footer3.data.application.data,
+          };
 
         });
     },
+    fetchProductDetail() {
+      fetch(
+        `/badaso-api/module/commerce/v1/product/public/read?slug=${this.slugProduct}`,
+        {
+          method: "GET",
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          this.products = data.data.product;
 
+          this.products = {
+            name: this.products.name,
+            image: this.products.productImage,
+            desc: this.products.desc,
+            price: this.products.productDetails[0].price,
+            category: this.products.productCategory.name,
+            sku: this.products.productCategory.SKU,
+            quantity: this.products.productDetails[0].quantity,
+          };
+
+        })
+        .catch((error) => console.error(error));
+    },
   };
 }
 
-function detailProduct(slug){
-     fetch(`/badaso-api/module/commerce/v1/product/public/read?slug=${slug}`, {
-       method: "GET",
-     })
-       .then((res) => res.json())
-       .then((data) => {
-         this.products = data.data.product;
-       })
-       .catch((error) => console.error(error));
-}
 
 window.fetchData = fetchData;
 window.fetchAuthenticated = fetchAuthenticated;
-window.detailProduct = detailProduct;
 window.Alpine = Alpine;
 Alpine.start();
