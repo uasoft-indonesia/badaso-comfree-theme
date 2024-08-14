@@ -10,7 +10,7 @@ Route::prefix($comfree_route_prefix)
     ->as('badaso.comfree-theme.')
     ->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
-    Route::get('/product-detail', [DetailController::class, 'index'])->name('product-detail');
+    Route::get('/{slug}', [DetailController::class, 'index'])->name('detail');
 
     });
 

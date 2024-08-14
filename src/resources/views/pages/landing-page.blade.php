@@ -1,6 +1,6 @@
 @extends('comfree-theme::layout.index')
 @section('title')
-    {{-- {{ $title }} --}}
+    {{ $sitetitle }}
 @endsection
 @section('mainContent')
     @include('comfree-theme::components.comfree-card-carousel')

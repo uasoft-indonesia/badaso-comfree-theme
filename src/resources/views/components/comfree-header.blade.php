@@ -2,8 +2,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link id="favicon" rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    {{-- <title>@yield('title')</title> --}}
-    <title>Comfree Theme</title>
+    <title>@yield('title')</title>
     <link href="{{ mix('css/comfree-theme.css') }}" rel="stylesheet">
     <script src="{{ mix('js/comfree-theme.js') }}" defer></script>
     <script src="http://maps.googleapis.com/maps/api/js"></script>
