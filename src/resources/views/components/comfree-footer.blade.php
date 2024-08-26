@@ -1,8 +1,7 @@
   <div class="bg-black mt-10">
-      <footer class="text-gray-500">
+      <footer class="text-gray-500" x-data="fetchData()"  x-init="fetchComfreeContent()">
           <div class="container mx-auto w-full max-w-[1150px]">
-              <div class="flex flex-col lg:flex-row py-8 justify-between gap-4 mx-4" x-data="fetchData()"
-                  x-init="fetchComfreeContent()">
+              <div class="flex flex-col lg:flex-row py-8 justify-between gap-4 mx-4">
                   <div class="flex flex-col w-full lg:w-1/2 space-y-2">
                       <h4 class="footer-title font-bold text-white text-base" x-html="footer.title1">Comfree Theme</h4>
                       <div class="w-full lg:w-3/4">
