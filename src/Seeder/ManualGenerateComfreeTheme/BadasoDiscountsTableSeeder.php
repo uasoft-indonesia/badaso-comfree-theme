@@ -24,7 +24,7 @@ class BadasoDiscountsTableSeeder extends Seeder
                 0 =>
                 array (
                     'id' => 1,
-                    'name' => 'Gebyar Diskon Merder',
+                    'name' => 'Gebyar Diskon Merdeka',
                     'desc' => NULL,
                     'discount_type' => 'fixed',
                     'discount_percent' => NULL,

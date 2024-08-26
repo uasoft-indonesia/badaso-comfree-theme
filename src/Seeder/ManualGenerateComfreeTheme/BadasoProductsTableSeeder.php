@@ -18,7 +18,6 @@ class BadasoProductsTableSeeder extends Seeder
 	{
 		\DB::beginTransaction();
 		try {
-			\DB::table('badaso_products')->delete();
 
 			\DB::table('badaso_products')->insert(array (
                 0 =>
