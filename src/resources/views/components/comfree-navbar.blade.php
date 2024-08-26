@@ -1,18 +1,18 @@
-  <div class="sticky top-0 z-30 bg-white shadow-lg">
-      <div class="container mx-auto  w-full max-w-[1150px]">
-          <div class="navbar" x-data="fetchData()" x-init="fetchConfiguration()">
-              <div class="flex flex-row justify-between w-full flex-nowrap">
+  <div class="sticky top-0 z-50 bg-white shadow-lg">
+      <div class="container mx-auto  w-full max-w-[1150px] sticky navbar z-50">
+          <div class="navbar">
+              <div class="flex flex-row justify-between w-full flex-nowrap" x-data="fetchData()"
+                  x-init="fetchConfiguration()">
                   <div class="flex items-center font-bold text-lg w-1/3">
                       <div class="w-full">
-                          <a href="https://badaso-docs.uatech.co.id/"><img :src="navbarLogo"
+                          <a :href="'{{ env('APP_URL') }}' + '/' + '{{ env('COMFREE_THEME_PREFIX') }}'"><img :src="navbarLogo"
                                   class="w-full lg:w-2/5 h-full object-cover" alt=""></a>
                       </div>
                   </div>
                   <div class="hidden lg:flex flex-nowrap w-1/3" x-data="fetchData()" x-init="fetchComfreeContent()">
                       <ul class="menu menu-horizontal px-1">
                           <template x-for="data in navbar">
-                              <li><a x-text="data.label.data.text">Katalog</a></li>
-                              {{-- <li><a>Blog</a></li> --}}
+                              <li><a :href="data.label.data.url" x-text="data.label.data.text">Katalog</a></li>
                           </template>
 
                           <li x-data="fetchData()" x-init="fetchProductCategory()">
@@ -66,12 +66,12 @@
                                   <li><a>Item 2</a></li>
                               </ul>
                           </div>
+
+
                       </div>
                   </div>
 
               </div>
           </div>
-
       </div>
-  </div>
   </div>

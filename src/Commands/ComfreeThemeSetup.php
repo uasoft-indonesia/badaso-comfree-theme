@@ -136,7 +136,7 @@ class ComfreeThemeSetup extends Command
         $decoded_json['dependencies']['daisyui'] = '^4.6.0';
         $decoded_json['dependencies']['alpinejs'] = '^3.13.5';
         $decoded_json['dependencies']['tailwindcss'] = '^3.4.1';
-        $decoded_json['dependencies']['@tailwindcss/aspect-ratio'] = '^0.4.2';
+        $decoded_json['dependencies']['alpinejs-money'] = '^1.1.3';
         $encoded_json = json_encode($decoded_json, JSON_PRETTY_PRINT);
         file_put_contents(base_path('package.json'), $encoded_json);
 

@@ -13,4 +13,5 @@ class DetailController extends Controller
     {
         return view('comfree-theme::pages.detail-page');
     }
+
 }

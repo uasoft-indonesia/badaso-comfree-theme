@@ -5,33 +5,50 @@
     <div x-data="fetchData()" x-init="fetchProductDetail()">
         <div class="container mx-auto w-full max-w-[1150px]">
 
-                <div class="grid grid-cols-2 mt-10 mx-4">
-                    <div class="w-full ">
-                        <figure><img :src="products.image"
-                                class="w-10/12 h-96 rounded-lg" alt="Shoes" />
-                        </figure>
+            <div class="flex flex-col lg:flex-row gap-6 mt-10 mx-4">
+                <div class="flex">
+                    <figure><img :src="products.image" class="w-full h-96 rounded-lg" alt="Shoes" />
+                    </figure>
+                </div>
+                <div class="flex flex-col space-y-4">
+                    <div class="">
+                        <span class="font-bold text-lg" x-text="products.name">Do What You Love</span>
                     </div>
-                    <div class="flex flex-col space-y-4">
-                        <div class="">
-                            <span class="font-bold text-lg" x-text="products.name">Do What You Love</span>
+                    <div>
+                        <span class="text-md"  x-money.id-ID.IDR.decimal="products.price"></span>
+                    </div>
+                    <div>
+                        <span class="text-sm text-gray-400" x-html="products.desc"></span>
+                    </div>
+
+                    <div x-data="{ count: 1 }">
+                        <div class="flex flex-nowrap">
+                            <button class="w-8 h-8 flex items-center justify-center border rounded-l-md focus:outline-none"
+                                x-on:click="count = count > 0 ? count-1 : count"> <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                                        clip-rule="evenodd" />
+                                </svg></button>
+
+                            <input type="text" class="bg-white border-t border-b w-12 h-8 text-center focus:outline-none"
+                                x-model="count">
+                            <button class="w-8 h-8 flex items-center justify-center border rounded-r-md focus:outline-none"
+                                x-on:click="count++"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4"
+                                    viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                                        clip-rule="evenodd" />
+                                </svg></button>
                         </div>
-                        <div>
-                            <span class="text-md" x-text="products.price">Rp 500.000</span>
-                        </div>
-                        <div>
-                            <span class="text-sm text-gray-400">Kaos dengan desain menarik dan nyaman digunakan. Dibuat
-                                khusus
-                                untuk
-                                Anda yang ingin tampil menarik dengan kesan simple dan modern</span>
-                        </div>
-                        <div>
-                            <button class="btn btn-wide bg-green-400 text-white rounded hover:text-black">Beli
-                                Sekarang</button>
-                        </div>
+
+                    </div>
+
+                    <div>
+                        <button class="btn btn-wide bg-green-400 text-white rounded hover:text-black">Beli
+                            Sekarang</button>
                     </div>
                 </div>
-
-
+            </div>
         </div>
         <div class="border-t border-gray-200 mt-10 mb-5"></div>
         <div class="container mx-auto w-full max-w-[1150px]">
@@ -63,8 +80,7 @@
                 </div>
 
                 <div>
-                    <span class="text-gray-400 text-sm" x-html="products.desc">Ugmonk merupakan brand yang fokus pada kualitas dan desain yang
-                        menarik, memberikan Anda identitas unik dari lainnya.</span>
+                    <span class="text-gray-400 text-sm" x-html="products.desc"></span>
                 </div>
             </div>
 
