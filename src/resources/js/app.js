@@ -1,4 +1,5 @@
 import Alpine from "alpinejs";
+import money from "alpinejs-money";
 
 function fetchAuthenticated() {
   return {
@@ -391,6 +392,7 @@ function fetchData() {
             quantity: this.products.productDetails[0].quantity,
           };
 
+
         })
         .catch((error) => console.error(error));
     },
@@ -401,4 +403,5 @@ function fetchData() {
 window.fetchData = fetchData;
 window.fetchAuthenticated = fetchAuthenticated;
 window.Alpine = Alpine;
+Alpine.plugin(money);
 Alpine.start();
